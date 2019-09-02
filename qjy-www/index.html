@@ -1,0 +1,143 @@
+﻿<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>钱江源</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/zzsc.css" />
+	<link rel="shortcut icon" href="img/song.ico" />
+	<link rel="bookmark" href="img/song.ico" />
+	<style>
+		a {
+			color: #fff !important;
+		}
+	</style>
+</head>
+
+<body>
+	<section class="section--white" style="margin-top: 40px;">
+		<div class="tile-container">
+			<a href="http://www.zhejianglab.com/" class="tile" target="_blank">
+				之江实验室
+			</a>
+			<a class="tile" href="http://doc.qjycloud.com/Chapter1/platform.html" target="_blank">
+				钱江源开源开放平台
+			</a>
+			<div class="tile" data-cta-target=".js-modal-3">加入我们</div>
+			<a class="tile" href="http://doc.qjycloud.com" target="_blank">
+				文档
+			</a>
+			<div class="tile" data-cta-target=".js-modal-5" style="width: 16.666%">社区</div>
+			<a class="tile" href="https://github.com/zhejianglab/QianJiangYuan" target="_blank">
+				github
+			</a>
+			<div class="tile" data-cta-target=".js-modal-7" style="width: 16.666%">联系方式</div>
+			<a class="tile tile_last" style="width: 100%;" href="https://qjy-proxy01.zhejianglab.com/" target="_blank">
+				主环境
+			</a>
+		</div>
+	</section>
+
+	<section class="section--white">
+		<p>Know more about me</p>
+		<a href="http://doc.qjycloud.com/" class="btn" style="background: #4A90E2">Click for document</a>
+	</section>
+
+	<section class="section--white">
+		<p>Get started</p>
+		<a href="https://qjy-proxy01.zhejianglab.com/" class="btn">submit a job</a>
+	</section>
+
+	<section class="section--white">
+
+	</section>
+
+	<div class="js-modal-3  modal  modal--3">
+		<span class="modal-close-btn"></span>
+		<h1>加入我们</h1>
+		<div class="quote-box__bubble" style="font-size:20px;line-height:30px;background:#ccc">
+			we need <br>
+			<a href="http://zp.zhejianglab.com/detail.aspx?id=c922fe4e1e0f47d891c0f8c11b077d1f" target="_blank">前端开发</a>
+			<br>
+			<a href="http://zp.zhejianglab.com/detail.aspx?id=9787750e919041139708d0dbe67b5560" target="_blank">后端开发</a>
+			<br>
+			<a href="http://zp.zhejianglab.com/detail.aspx?id=ea2d097fd53545308a8ba3de22bc1bf1" target="_blank">运维开发</a>
+			<br>
+			<a href="http://zp.zhejianglab.com/detail.aspx?id=d31aa121b4f74cea96311f054bb48f63" target="_blank">算法开发</a>
+			<br>
+			<a href="http://zp.zhejianglab.com/detail.aspx?id=e6c3064ef59a4ff7be31ec99a6ac827c" target="_blank">算法研究</a>
+		</div>
+	</div>
+
+	<div class="js-modal-5  modal  modal--5">
+		<span class="modal-close-btn"></span>
+
+		<h1>社区</h1>
+		<div class="quote-box">
+			<div class="quote-box__bubble" style="font-size:16px;line-height:25px;">建设中
+			</div>
+		</div>
+	</div>
+
+	<div class="js-modal-7  modal  modal--7">
+		<span class="modal-close-btn"></span>
+		<h1>qianjianyuan@aliyun.com</h1>
+		<div class="quote-box__bubble" style="font-size:20px;line-height:30px">
+			email me
+		</div>
+	</div>
+
+
+	<div class="js-dialog  modal  dialog" style="text-align: center;">
+		<span class="modal-close-btn"></span>
+		<h3>Do you think this is Awesome?</h3>
+		<br>
+		<a onclick="closeShowingModal(true); return;" class="btn  btn--blue">Yes</a>
+		<a onclick="closeShowingModal(false); return;" class="btn  btn--blue">No</a>
+
+	</div>
+
+
+	<script src="dist/cta.min.js"></script>
+	<script>
+		var closeFn;
+		function closeShowingModal(liked) {
+			if (liked !== undefined) {
+				_gaq.push(['_trackEvent', 'ctajs', liked ? 'liked' : 'unliked']);
+			}
+			var showingModal = document.querySelector('.modal.show');
+			if (!showingModal) return;
+			showingModal.classList.remove('show');
+			document.body.classList.remove('disable-mouse');
+			if (closeFn) {
+				closeFn();
+				closeFn = null;
+			}
+		}
+		document.addEventListener('click', function (e) {
+			var target = e.target;
+			if (target.dataset.ctaTarget) {
+				_gaq.push(['_trackEvent', 'ctajs', 'modal']);
+				closeFn = cta(target, document.querySelector(target.dataset.ctaTarget), { relativeToWindow: true }, function showModal(modal) {
+					modal.classList.add('show');
+					document.body.classList.add('disable-mouse');
+				});
+			}
+			else if (target.classList.contains('modal-close-btn')) {
+				closeShowingModal();
+			}
+		});
+		document.addEventListener('keyup', function (e) {
+			if (e.which === 27) {
+				closeShowingModal();
+			}
+		})
+
+		var _gaq = _gaq || [];
+	</script>
+
+</body>
+
+</html>
